@@ -2,7 +2,8 @@ import sys
 
 import pandas as pd
 
-print(sys.argv)
+# for debugging print all the args in the system environment
+# print(sys.argv)
 
 day = sys.argv[1]
 
