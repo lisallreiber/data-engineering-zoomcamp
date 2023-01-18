@@ -22,10 +22,12 @@ python                                              # opens python in the intera
 docker build -t test:pandas .                       # image is build based on the dockerfile in the current directory
 docker run -it test:pandas                          # with v0 code uncommented in dockerfile
 
+
 # problem: we don't want to run our oython scripts manually in the container
 # solution: now we create a python script (pipeline) which we run in the container
 docker build -t test:python_pipeline .              # image is build based on the dockerfile in the current directory
 docker run -it test:python_pipeline 2022-01-17      # with v1.1 code uncommented in dockerfile and day parameter
+docker run -it -e "DAY=2023-01-17" test:python_pipeline     # with v1.1 code uncommented in dockerfile and day parameter
 
 # problem: how to load data
 docker build -t pandas:test_pipeline .              # image is build based on the dockerfile in the current directory
