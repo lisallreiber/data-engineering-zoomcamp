@@ -17,6 +17,7 @@ RUN pip install pandas
 
 WORKDIR /app
 COPY pipeline.py pipeline.py
+ENV DAY="today"
 
 # here we define what docker is supposed to run in the container
 ENTRYPOINT [ "python", "pipeline.py" ]
