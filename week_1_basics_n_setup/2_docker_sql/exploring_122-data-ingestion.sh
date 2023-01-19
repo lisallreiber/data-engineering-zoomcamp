@@ -64,11 +64,7 @@ pgcli -h localhost -p 5432 -u root -d ny_taxi  # the password will be asked in a
 # -reg. curl: always pay attention to the URL from which you download!
 #   -L flag tells curl to follow redirects, 
 #   -J flag tells it to automatically set the filename based on the URL, 
-#   -O flag tells it to save the file with the same name as the remote file.
-
-
-# step 3.1 open a jupyter notebook
-jupyter notebook                        
+#   -O flag tells it to save the file with the same name as the remote file.                       
 
 # step 3.2 download the data & copy it into current directory
 curl -o ~/Downloads/yellow_tripdata_2020-01csv.gz https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2020-01.csv.gz
@@ -94,6 +90,6 @@ wc -l yellow_tripdata_2021-01.csv       # -l flag: count lines
 # step5: load dataset into DB
 # ------------------------------------------
 
-# Notes --> see jupyter notebook
-
+# open a jupyter notebook
+jupyter notebook 
 
