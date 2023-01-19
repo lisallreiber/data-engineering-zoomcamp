@@ -93,3 +93,9 @@ wc -l yellow_tripdata_2021-01.csv       # -l flag: count lines
 # open a jupyter notebook
 jupyter notebook 
 
+# step6: explore data
+# ------------------------------------------
+
+# look at ealiest and most recent entry and max price paid on all trips
+SELECT max(tpep_pickup_datetime), min(tpep_pickup_datetime), max(total_amount) FROM yellow_taxi_data
+
