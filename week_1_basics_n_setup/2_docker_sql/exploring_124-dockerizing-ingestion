@@ -1,0 +1,23 @@
+# DE Zoomcamp - 1.2.4 Dockerizing the Ingestion script
+# this script is for documentation purposes and is not meant to be run automatically
+
+# convert jupyter notebook to script
+
+jupyter nbconvert --to=script exploring_122-data-ingestion_upload-data.ipynb --output="upload-data"
+
+
+# dockerizing the pipeline
+
+docker build -t taxi_ingest:v001 .
+
+docker run -it \
+  --network=pg-network \
+    taxi_ingest:v001 \
+    --user = root \
+    --password = root \
+    --host = localhost \
+    --port = 5432 \
+    --db_name = ny_taxi \
+    --tbl_name = yellow_taxi_data \
+    --url = ${URL}
+    
