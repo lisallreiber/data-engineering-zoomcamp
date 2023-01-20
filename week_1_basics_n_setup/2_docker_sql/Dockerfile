@@ -11,23 +11,26 @@
 
 #  v1.1: simple version
 # -----------------------------------------------
-FROM python:3.9.1
+# FROM python:3.9.1
 
-RUN pip install pandas 
-
-WORKDIR /app
-COPY pipeline.py pipeline.py
-ENV DAY="today"
-
-# here we define what docker is supposed to run in the container
-ENTRYPOINT [ "python", "pipeline.py" ]
-
-# #  v1.2: simple version
-# # -----------------------------------------------
-# RUN apt-get install wget
-# RUN pip install pandas sqlalchemy psycopg2
+# RUN pip install pandas 
 
 # WORKDIR /app
-# COPY ingest_data.py ingest_data.py 
+# COPY pipeline.py pipeline.py
+# ENV DAY="today"
 
-# ENTRYPOINT [ "python", "ingest_data.py" ]
+# # here we define what docker is supposed to run in the container
+# ENTRYPOINT [ "python", "pipeline.py" ]
+
+#  v1.2: simple version
+# -----------------------------------------------
+FROM python:3.9.1
+
+RUN apt-get install wget
+RUN pip install pandas sqlalchemy psycopg2
+
+WORKDIR /app
+COPY upload-data.py upload-data.py 
+ENV DAY="today"
+
+ENTRYPOINT [ "python", "upload-data.py" ]
