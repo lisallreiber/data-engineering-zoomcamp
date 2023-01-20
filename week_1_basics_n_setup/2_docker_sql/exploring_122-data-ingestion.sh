@@ -74,6 +74,10 @@ cp ~/Downloads/yellow_tripdata_2020-01.csv .  # cp to copy a file into the curre
 curl -LJO https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz
 gunzip ./yellow_tripdata_2021-01.csv.gz    
 
+# alternative with wget
+wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz -o 'yellow_tripdata_2021-01.csv.gz'
+
+
 # step4: explore dataset
 # ------------------------------------------
 
