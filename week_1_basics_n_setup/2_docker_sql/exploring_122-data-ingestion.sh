@@ -54,7 +54,7 @@ pip install pgcli                      # if not already installed
 pgcli --help                           # open the manual
 pgcli -h localhost -p 5432 -u root -d ny_taxi  # the password will be asked in an interactive prompt
 \dt                                    # list all tables
-\d tabel_name                          # describe a table
+\d table_name                          # describe a table
 
 # step3: import data
 # --------------------------------------------------------------
@@ -75,7 +75,7 @@ curl -LJO https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow
 gunzip ./yellow_tripdata_2021-01.csv.gz    
 
 # alternative with wget
-wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz -o 'yellow_tripdata_2021-01.csv.gz'
+wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz -O 'yellow_tripdata_2021-01.csv.gz'
 
 
 # step4: explore dataset
