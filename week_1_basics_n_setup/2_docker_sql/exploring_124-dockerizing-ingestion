@@ -6,18 +6,35 @@
 jupyter nbconvert --to=script exploring_122-data-ingestion_upload-data.ipynb --output="upload-data"
 
 
+# testing if we successfully transformed the notebook to a script
+# and if we can pass parameters to upload.data.py
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+
+python upload-data.py \
+    --user=root \
+    --password=root \
+    --host=localhost \
+    --port=5432 \
+    --db_name=ny_taxi \
+    --tbl_name=yellow_taxi_data \
+    --url=${URL} 
+
 # dockerizing the pipeline
 
 docker build -t taxi_ingest:v001 .
 
+  # parameters to docker
+    # parameters to the job (upload-data)
+
+
 docker run -it \
   --network=pg-network \
     taxi_ingest:v001 \
-    --user = root \
-    --password = root \
-    --host = localhost \
-    --port = 5432 \
-    --db_name = ny_taxi \
-    --tbl_name = yellow_taxi_data \
-    --url = ${URL}
+      --user=root \
+      --password=root \
+      --host=pg-database \
+      --port=5432 \
+      --db_name=ny_taxi \
+      --tbl_name=yellow_taxi_data \
+      --url=${URL}
     
