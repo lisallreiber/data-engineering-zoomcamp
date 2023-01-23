@@ -5,6 +5,7 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=ny_taxi
+    # volume mapping (path on local:path on container)
     volumes:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
@@ -14,6 +15,12 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - type: volume
+        source: pgadmin_data
+        target: /var/lib/pgadmin
     ports:
       - "8080:80"
-    
+
+volumes:
+  pgadmin_data:
