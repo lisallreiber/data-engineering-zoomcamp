@@ -31,6 +31,5 @@ RUN pip install pandas sqlalchemy psycopg2
 
 WORKDIR /app
 COPY upload-data.py upload-data.py 
-ENV DAY="today"
 
 ENTRYPOINT [ "python", "upload-data.py" ]
