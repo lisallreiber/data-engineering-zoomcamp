@@ -3,8 +3,8 @@
 
 # DE Zoomcamp: Upload Data to Postgres
 
-# !pip install sqlalchemy
-# !pip install psycopg2
+# !pip install -m sqlalchemy
+# !pip install -m psycopg2
 
 import os
 import argparse
