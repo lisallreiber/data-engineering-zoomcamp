@@ -295,3 +295,13 @@ docker-compose up
 docker-compose down
 
 # if its in interactuve mode (-it flag) you can run ctrl+c
+
+#-------------------------------------------------------------
+# Code Along/Notes: 1.2.6 SQL Refresher
+#-------------------------------------------------------------
+
+# check how many rows are in zones
+SELECT 
+  *
+FROM
+  zones;
