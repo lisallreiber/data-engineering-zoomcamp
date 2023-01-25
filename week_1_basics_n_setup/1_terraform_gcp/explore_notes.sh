@@ -98,4 +98,49 @@ wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
     # check it its running 
     docker ps
 
-    
+# step6: install pgcli
+    cd 
+    pip install pgcli
+    # connect to postgres
+    pgcli -h localhost -U root -d ny_taxi
+
+    # alternative way 
+    conda install -c conda-forge pgcli   # installs compiled version
+    # update pip list
+    pip install -U mycli
+
+# step7: how to forward the port from VM localhost to our local machine
+    # in the SSH VSCode Window go to Ports Tab and click on forward port
+    # then connect to it from local VSCode
+    pgcli -h localhost -U root -d ny_taxi
+
+# step8: install terraform
+    # go to https://developer.hashicorp.com/terraform/downloads
+    # copy the link to the binary amd64
+    # cd into bin directory and
+    wget https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_amd64.zip
+    # unzip it with
+    sudo apt-get install unzip
+    unzip terraform_1.3.7_linux_amd64.zip
+    # remove zip file
+    rm terraform_1.3.7_linux_amd64.zip
+    # check if its already executable
+
+    # setup the service worker credentials
+    # for this the JSON file needs to land on the google VM, we can use ftp transfer
+    sftp de-zoomcamp
+    put dtc-de-375708-9120d1930b33.json
+
+    # now we need to connect it to the cloud but we cannot use the OAuth method 
+    # instead we use the key file
+    # again we export the ENV Variable
+    export GOOGLE_APPLICATION_CREDENTIALS="~/.GCP/dtc-de-375708-9120d1930b33.json"
+
+    # now we use this file with 
+    gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+
+        #debugging
+        echo $GOOGLE_APPLICATION_CREDENTIALS
+
+    # step8: stopping the VM on GCP
+    sudo shutdown now
